@@ -1,5 +1,6 @@
 import service from 'consul-ui/sort/comparators/service';
 import check from 'consul-ui/sort/comparators/check';
+import role from 'consul-ui/sort/comparators/role';
 
 export function initialize(container) {
   // Service-less injection using private properties at a per-project level
@@ -7,6 +8,7 @@ export function initialize(container) {
   const comparators = {
     service: service(),
     check: check(),
+    role: role(),
   };
   Sort.reopen({
     comparator: function(type) {
